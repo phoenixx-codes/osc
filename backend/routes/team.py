@@ -1,28 +1,55 @@
-from flask import Flask,Blueprint,jsonify
+from flask import Flask,Blueprint,jsonify,request
+from mongoDB import mongo
 
 team_bp=Blueprint("team",__name__)
 
-#later gotta swap the team data with mongo queries.
-team_data={
-    "2023": {
-        "Tech": [
-            {"title": "Backend Lead", "disc": "Handles APIs", "image": "/images/backend.png", "link": "https://github.com/user1"},
-            {"title": "Frontend Lead", "disc": "UI/UX", "image": "/images/frontend.png", "link": "https://github.com/user2"}
-        ],
-        "Design": [
-            {"title": "Designer", "disc": "Posters & UI Design", "image": "/images/design.png", "link": "https://github.com/user3"}
-        ]
-    },
-    "2024": {
-        "Tech": [
-            {"title": "Backend Intern", "disc": "Helps backend team", "image": "/images/backend2.png", "link": "https://github.com/user4"}
-        ]
-    }
-}
-
-@team_bp.route("/team",methods=["GET","POST"])
+#fetch all teams
+@team_bp.route("/team",methods=["GET"])
 def get_team():
-    return jsonify(team_data)
+    teams = mongo.db.teams.find({})
+    team_list = {}
 
+    #group the data by year
+    for team in teams:
+        year = team.get("year")
+        category = team.get("category")
+        member = {
+            "title": team.get("title"),
+            "disc": team.get("disc"),
+            "image": team.get("image"),
+            "link": team.get("link")
+        }
+
+        if year not in team_list:
+            team_list[year] = {}
+
+        if category not in team_list[year]:
+            team_list[year][category] = []
+
+        team_list[year][category].append(member)
+
+    return jsonify(team_list)
+
+
+
+#add a new member
+@team_bp.route("/team", methods=["POST"])
+def add_team_member():
+    data = request.get_json()
+
+    required_fields = ["year", "category", "title", "disc", "image", "link"]
+    if not all(field in data for field in required_fields):
+        return jsonify({"error": "Missing required fields"}), 400
+
+    result = mongo.db.teams.insert_one({
+        "year": data["year"],
+        "category": data["category"],
+        "title": data["title"],
+        "disc": data["disc"],
+        "image": data["image"],
+        "link": data["link"]
+    })
+
+    return jsonify({"message": "Team member added", "Title": data["title"]}), 201
 
 
