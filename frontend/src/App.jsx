@@ -1,24 +1,31 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/common/Navbar";
-import Footer from "./components/common/Footer";
-import Contact from "./pages/Contact";
-import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Contact from './pages/Contact'
+import './App.css'
+import './index.css'
+import GradientLayout from './layout/GradientLayout'
 
 function App() {
-  return (
-    <Router>
-      {/* Common layout */}
-      <Navbar />
+	return (
+		<Router>
+			<Routes>
+				<Route path="/" element={<GradientLayout />}>
+					<Route
+						index
+						element={
+							<h1
+								style={{ height: '700px' }}
+								className="relative z-10 text-center text-4xl font-bold text-white mt-20"
+							>
+								Home Page
+							</h1>
+						}
+					/>
 
-      {/* Page Routes */}
-      <Routes>
-        <Route path="/" element={<h1 className="text-white">Home Page</h1>} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-
-      <Footer />
-    </Router>
-  );
+					<Route path="contact" element={<Contact />} />
+				</Route>
+			</Routes>
+		</Router>
+	)
 }
 
-export default App;
+export default App
