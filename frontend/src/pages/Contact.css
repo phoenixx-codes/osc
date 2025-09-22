@@ -125,12 +125,12 @@
 	}
 
 	.contact-info {
-		flex: 0 0 40%; /* don’t grow, don’t shrink, width 40% */
+		flex: 0 0 40%;
 		max-width: 40%;
 	}
 
 	.card {
-		flex: 0 0 60%; /* don’t grow, don’t shrink, width 60% */
+		flex: 0 0 60%;
 		max-width: 60%;
 		width: auto;
 	}

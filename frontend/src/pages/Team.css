@@ -1,0 +1,102 @@
+.team-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0rem 1rem;
+	box-sizing: border-box;
+}
+
+.team-heading {
+	font-size: 3rem;
+	font-weight: 800;
+	color: #fff;
+	margin-bottom: 2rem;
+}
+
+.year-selector {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	width: 90%;
+	justify-content: space-between;
+	gap: 0.5rem;
+	margin-bottom: 2rem;
+}
+
+.year-label {
+	cursor: pointer;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.year-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.25rem;
+	padding: 0.75rem 1.5rem;
+	border-radius: 0.5rem;
+	background-color: #cbd5e1; /* slate-200 */
+	color: #1e293b; /* slate-900 */
+	font-weight: 500;
+	transition: all 0.2s;
+	transform: scale(0.95);
+}
+
+.year-button:hover {
+	transform: scale(1);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	opacity: 0.8;
+}
+
+.year-button.selected {
+	color: #000;
+	border: 1px solid #334155; /* slate-700 */
+	box-shadow: 0 0 0 1px #334155;
+}
+
+.year-arrow {
+	width: 0.75rem;
+	height: 0.75rem;
+}
+
+.department-section {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.department-title {
+	font-size: 2rem;
+	font-weight: 800;
+	color: #27272a;
+	margin-bottom: 1rem;
+	text-align: left;
+}
+
+.department-members {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+}
+
+@media (min-width: 640px) {
+	.department-members {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	.department-members {
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1rem;
+	}
+}
