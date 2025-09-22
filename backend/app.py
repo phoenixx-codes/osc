@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 from flask_cors import CORS
 from routes.comingsoon import comingsoon_bp
 from routes.contact import contact_bp
@@ -13,7 +13,10 @@ load_dotenv()
 
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask(__name__,
+                static_folder="../frontend/dist/",  # React static files
+        template_folder="../frontend/dist"       # React index.html
+    )
     CORS(app)
  
     #get mongoDB url from .env
@@ -32,9 +35,14 @@ def create_app():
     app.register_blueprint(events_bp, url_prefix="/api")
     app.register_blueprint(team_bp, url_prefix="/api")
 
-    @app.route("/")
-    def home():
-        return "Yoo wsg mate"
+    @app.route("/", defaults={"path": ""})
+    @app.route("/<path:path>")
+    def serve_react(path):
+        if path != "" and os.path.exists(os.path.join(app.template_folder, path)):
+            return send_from_directory(app.template_folder, path)
+        else:
+            return send_from_directory(app.template_folder, "index.html")
+
 
     return app
 
