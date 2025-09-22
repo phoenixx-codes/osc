@@ -777,7 +777,7 @@ const GradientLayout = () => {
 	}, []) // Empty dependency array ensures this effect runs only once
 
 	return (
-		<div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
+		<div style={{ position: 'relative', width: '100%', height: '100vh' }}>
 			<canvas
 				id="gradient-canvas"
 				ref={canvasRef}
