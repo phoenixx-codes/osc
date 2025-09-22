@@ -20,11 +20,11 @@ export default function EventCard({
 		<a href={url} className={`event-card ${visible ? 'visible' : ''}`}>
 			<img
 				alt={title}
-				src={image || 'https://i.ibb.co/7CSS8gg/Place-Holder-black.png'}
+				src={image || '/Place-Holder-black.png'}
 				className="event-image"
 				onError={(e) => {
 					e.target.onerror = null //prevent loop
-					e.target.src = 'https://i.ibb.co/7CSS8gg/Place-Holder-black.png' //placeholder image
+					e.target.src = '/Place-Holder-black.png' //placeholder image
 				}}
 			/>
 

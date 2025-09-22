@@ -1,0 +1,86 @@
+.section {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+	box-sizing: border-box;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.gridWrapper {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+	.gridWrapper {
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+		gap: 4rem;
+	}
+}
+
+.textSection {
+	text-align: center;
+}
+
+@media (min-width: 1024px) {
+	.textSection {
+		text-align: left;
+	}
+}
+
+.title {
+	font-size: 2rem;
+	font-weight: 800;
+	background: linear-gradient(to right, #a855f7, #ec4899, #3b82f6);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+	.title {
+		font-size: 2.5rem;
+	}
+}
+
+.description {
+	font-size: 0.875rem;
+	color: #71717a;
+	margin-bottom: 1.5rem;
+}
+
+.joinButton {
+	display: inline-block;
+	position: relative;
+	padding: 0.625rem 1.25rem;
+	border-radius: 0.5rem;
+	background-color: #f3e8ff;
+	color: #7c3aed;
+	font-weight: 500;
+	text-decoration: none;
+	overflow: hidden;
+	transition: all 0.5s ease-out;
+}
+
+.joinButton:hover {
+	background-color: #7c3aed;
+	color: #fff;
+}
+
+.cardsGrid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+}
+
+@media (min-width: 640px) {
+	.cardsGrid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}

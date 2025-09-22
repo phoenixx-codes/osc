@@ -1,0 +1,132 @@
+.heroContainer {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+	box-sizing: border-box;
+}
+
+.heroContent {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+@media (min-width: 768px) {
+	.heroContent {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+.heroLeft {
+	flex: 2;
+}
+
+.heroRight {
+	flex: 1;
+	display: none; /* hide on small screens */
+	align-items: center;
+	justify-content: center;
+}
+
+@media (min-width: 768px) {
+	.heroRight {
+		display: flex;
+	}
+}
+
+.heroTitle {
+	font-size: 2rem;
+	font-weight: 800;
+	color: white;
+	margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+	.heroTitle {
+		font-size: 3rem;
+	}
+}
+
+.heroDescription {
+	font-size: 0.875rem;
+	color: white;
+	max-width: 28rem;
+	margin-bottom: 1.5rem;
+}
+
+.discordButton {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0.75rem 1rem;
+	background: linear-gradient(to right, #ec4899, #7c3aed, #14b8a6);
+	color: white;
+	font-weight: 600;
+	border-radius: 0.5rem;
+	text-decoration: none;
+	position: relative;
+	overflow: hidden;
+	transition: transform 0.2s ease;
+}
+
+.discordButton:hover {
+	transform: scale(1.05);
+}
+
+.discordContent {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.discordIcon {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+.discordText {
+	font-size: 0.875rem;
+}
+
+.eventCard {
+	height: fit-content;
+	background: white;
+	border-radius: 0.5rem;
+	padding: 1rem;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.eventCard:hover {
+	box-shadow: 5 15px 15px rgba(0, 0, 0, 0.1);
+	transform: scale(1.01);
+}
+
+.eventTitle {
+	color: black;
+	font-size: 1.5rem;
+	font-weight: 700;
+	margin-top: 1rem;
+}
+
+.eventDescription {
+	font-size: 0.875rem;
+	color: #6b7280;
+	margin-bottom: 1rem;
+	line-height: 1.5;
+}
+
+.eventButton {
+	display: inline-flex;
+	align-items: center;
+	font-weight: 500;
+	text-decoration: none;
+	color: #4f46e5;
+	gap: 0.25rem;
+}
+
+.eventButtonIcon {
+	width: 1rem;
+	height: 1rem;
+}
