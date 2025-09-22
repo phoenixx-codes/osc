@@ -1,0 +1,83 @@
+.event-card {
+	display: block;
+	padding: 0.5rem;
+	background: rgba(255, 255, 255, 0.9);
+	border: 1px solid #e4e4e7; /* zinc-200 */
+	border-radius: 0.5rem;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+	text-decoration: none;
+	color: inherit;
+	opacity: 0;
+	transform: translateY(20px);
+	transition: all 0.5s ease;
+}
+
+.event-card.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.event-card:hover {
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	opacity: 0.8;
+}
+
+.event-image {
+	width: 100%;
+	border-radius: 0.375rem;
+	object-fit: cover;
+}
+
+.event-content {
+	margin-top: 0.5rem;
+	opacity: 0;
+	transform: translateX(-20px);
+	transition: all 0.5s ease 0.15s;
+}
+
+.event-content.visible {
+	opacity: 1;
+	transform: translateX(0);
+}
+
+.event-subtitle {
+	font-size: 0.875rem;
+	color: #71717a; /* zinc-500 */
+}
+
+.event-title {
+	font-weight: 600;
+	color: #27272a; /* zinc-800 */
+}
+
+.event-meta {
+	margin-top: 1.5rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 0.75rem;
+	font-size: 0.75rem;
+	align-items: center;
+}
+
+.event-meta-item {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	flex-shrink: 0;
+}
+
+.event-meta-label {
+	color: #71717a;
+	font-size: 0.75rem;
+}
+
+.event-meta-value {
+	font-weight: 500;
+	color: #27272a;
+}
+
+.icon {
+	width: 1rem;
+	height: 1rem;
+}
