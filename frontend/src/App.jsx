@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-
 import './App.css'
 import './index.css'
 import GradientLayout from './layout/GradientLayout'
@@ -7,7 +6,6 @@ import Home from './pages/Home'
 import Team from './pages/Team'
 import Events from './pages/Events'
 import Contact from './pages/Contact'
-
 
 function App() {
 	return (

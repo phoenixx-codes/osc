@@ -10,25 +10,25 @@ body {
 }
 
 #gradient-canvas {
-	--gradient-color-1: #31f0c9;
-	--gradient-color-2: #b213f6;
+	--gradient-color-1: #b213f6;
+	--gradient-color-2: #31f0c9;
 	--gradient-color-3: #98bdaf;
 	--gradient-color-4: #c29fcb;
 	z-index: -1;
 	-webkit-mask-image: radial-gradient(3000% 100% at bottom, transparent 0%, #fff 50%);
 }
 .container {
-  width: 960px;
-  margin: 0 auto;
+	width: 960px;
+	margin: 0 auto;
 }
 .main-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 4rem;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 4rem;
 }
 
 @media screen and (min-width: 1024px) {
-  .main-grid {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
+	.main-grid {
+		grid-template-columns: repeat(5, minmax(0, 1fr));
+	}
 }
